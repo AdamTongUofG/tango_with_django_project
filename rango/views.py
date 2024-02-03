@@ -62,7 +62,7 @@ def add_category(request):
             #save the new category to the database
             form.save(commit=True)
             #redirect the user back to the index view
-            return redirect('/rango/')
+            return redirect(reverse("{% url 'rango:index' %}"))
         else:
             #if the form contains errors
             print(form.errors)
@@ -79,7 +79,7 @@ def add_page(request, category_name_slug):
     
     #you cannot add a page to a category that does not exist
     if category is None:
-        return redirect('/rango/')
+        return redirect(reverse("{% url 'rango:index' %}"))
     
     form = PageForm()
 
@@ -93,7 +93,7 @@ def add_page(request, category_name_slug):
                 page.views = 0
                 page.save()
 
-                return redirect(reverse('rango:show_category',kwargs={'category_name_slug':category_name_slug}))
+                return redirect(reverse("{% url 'rango:add_page' category.slug %}"))
             
         else:
             print(form.errors)
