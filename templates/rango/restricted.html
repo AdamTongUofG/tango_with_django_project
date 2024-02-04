@@ -1,0 +1,17 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+Restricted Page
+{% endblock %}
+
+{% block body_block %}
+<h1>Rango says...</h1>
+    <div>
+        here is the super duper secret page. <br />
+        <strong>This awesome page has been put together by Emperor Adam Tongnado, yet again B)</strong><br />
+    </div>
+    <div>
+        <img src="{% static 'images/alterego.gif' %}" alt="Gif of Drake" />
+    </div>
+{% endblock %}
